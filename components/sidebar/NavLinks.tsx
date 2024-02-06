@@ -25,8 +25,8 @@ const NavLinks = () => {
               href={href}
               className={`flex flex-1 items-center gap-4 px-4 py-2 rounded-md capitalize text-[13px] font-medium ${
                 isActive
-                  ? "text-slate-200 bg-blue-600"
-                  : "text-slate-500 transition-all duration-200 hover:bg-blue-400 hover:text-black"
+                  ? "text-black bg-[#f2f2f3]"
+                  : "text-[#949eb2] transition-all duration-200 hover:text-black"
               }`}
             >
               <span className="text-sm">{icon}</span>
