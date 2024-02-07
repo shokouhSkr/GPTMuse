@@ -8,7 +8,6 @@ const links = [
   { href: "/chat", label: "chat", icon: <FaUser /> },
   { href: "/tours", label: "tours", icon: <FaUser /> },
   { href: "/tours/new-tour", label: "new tour", icon: <FaUser /> },
-  { href: "/profile", label: "profile", icon: <FaUser /> },
 ];
 
 const NavLinks = () => {

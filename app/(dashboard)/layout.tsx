@@ -4,6 +4,7 @@ import { HiBars3 } from "react-icons/hi2";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="drawer lg:drawer-open">
+      {/* Sidebar toggle */}
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content">
@@ -11,7 +12,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-6 right-6">
           <HiBars3 className="size-5" />
         </label>
-        <div className="px-8 py-12 min-h-screen">{children}</div>
+        <div className="px-8 pt-14 pb-0 min-h-screen">{children}</div>
       </div>
 
       <div className="drawer-side">
