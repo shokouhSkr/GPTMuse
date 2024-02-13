@@ -1,15 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { useCreateMessage } from "@/hooks/useCreateMessage";
+import { ChatMessage } from "@/types";
 
 const Chat = () => {
   const [text, setText] = useState("");
-  const [messages, setMessages] = useState<String[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const { createMessage } = useCreateMessage(messages);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(text);
+    const query: ChatMessage = { role: "user", content: text };
+    createMessage(query, {
+      onSuccess: (data) => {
+        setMessages((prevMessages) => [...prevMessages, data]);
+      },
+    });
+
+    setText("");
   };
 
   return (
