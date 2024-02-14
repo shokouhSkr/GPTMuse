@@ -22,8 +22,6 @@ const NewTour = () => {
     return <span className="loading loading-lg"></span>;
   }
 
-  console.log("tour: ", tour);
-
   return (
     <>
       <form onSubmit={handleSubmit} className="max-w-2xl">

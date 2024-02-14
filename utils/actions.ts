@@ -1,13 +1,14 @@
 "use server";
 
-import { ChatMessageType } from "@/types";
+import { ChatMessageType, DestinationType, TourType } from "@/types";
 import OpenAI from "openai";
+import prisma from "./db";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const createDestinationPlan = ({ city, country }: { city: string; country: string }) => {
+const createDestinationPlan = ({ city, country }: DestinationType) => {
   // "stops": ["short paragraph on the stop 1 ", "short paragraph on the stop 2","shortparagraph on the stop 3"]
   return `Find a exact ${city} in this exact ${country}.
   If ${city} and ${country} exist, create a list of things families can do in this ${city},${country}. 
@@ -41,8 +42,15 @@ export const generateChatResponse = async (chatMessages: ChatMessageType[]) => {
 };
 
 // Before we generate tour, we want to check for exciting ones
-export const getExistingTourApi = async ({ city, country }: { city: string; country: string }) => {
-  return null;
+export const getExistingTour = async ({ city, country }: DestinationType) => {
+  return prisma.tour.findUnique({
+    where: {
+      city_country: {
+        city,
+        country,
+      },
+    },
+  });
 };
 
 export const generateTourResponse = async ({
@@ -77,6 +85,8 @@ export const generateTourResponse = async ({
   }
 };
 
-export const createNewTour = async (tour: any) => {
-  return null;
+export const createNewTour = async (tour: TourType) => {
+  return prisma.tour.create({
+    data: tour,
+  });
 };
