@@ -16,7 +16,7 @@ const NavLinks = () => {
   return (
     <ul className="text-base-content space-y-2">
       {links.map(({ href, label, icon }) => {
-        const isActive = currentPath.startsWith(href);
+        const isActive = href === currentPath;
 
         return (
           <li key={label}>
