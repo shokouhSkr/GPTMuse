@@ -10,6 +10,8 @@ export type DestinationType = {
 
 export type TourType = {
   id: string;
+  createdAt: Date;
+  updatedAt: Date;
   city: string;
   country: string;
   title: string;

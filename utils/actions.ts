@@ -46,20 +46,14 @@ export const getExistingTour = async ({ city, country }: DestinationType) => {
   return prisma.tour.findUnique({
     where: {
       city_country: {
-        city,
-        country,
+        city: city,
+        country: country,
       },
     },
   });
 };
 
-export const generateTourResponse = async ({
-  city,
-  country,
-}: {
-  city: string;
-  country: string;
-}) => {
+export const generateTourResponse = async ({ city, country }: DestinationType) => {
   const query = createDestinationPlan({ city, country });
 
   try {
@@ -89,4 +83,38 @@ export const createNewTour = async (tour: TourType) => {
   return prisma.tour.create({
     data: tour,
   });
+};
+
+export const getAllTours = async (searchTerm?: string) => {
+  if (!searchTerm) {
+    const tours = await prisma.tour.findMany({
+      orderBy: {
+        city: "asc",
+      },
+    });
+
+    return tours;
+  }
+
+  const tours = await prisma.tour.findMany({
+    where: {
+      OR: [
+        {
+          city: {
+            contains: searchTerm,
+          },
+        },
+        {
+          country: {
+            contains: searchTerm,
+          },
+        },
+      ],
+    },
+    orderBy: {
+      city: "asc",
+    },
+  });
+
+  return tours;
 };

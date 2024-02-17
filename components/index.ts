@@ -6,3 +6,6 @@ export { default as ThemeToggle } from "./themeToggle/ThemeToggle";
 export { default as Chat } from "./chat/Chat";
 export { default as NewTour } from "./newTour/NewTour";
 export { default as TourInfo } from "./newTour/TourInfo";
+export { default as Tours } from "./tours/Tours";
+export { default as TourCard } from "./tours/TourCard";
+export { default as ToursList } from "./tours/ToursList";
