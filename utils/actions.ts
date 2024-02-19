@@ -43,7 +43,7 @@ export const generateChatResponse = async (chatMessages: ChatMessageType[]) => {
 
 // Before we generate tour, we want to check for exciting ones
 export const getExistingTour = async ({ city, country }: DestinationType) => {
-  return prisma.tour.findUnique({
+  const data = prisma.tour.findUnique({
     where: {
       city_country: {
         city: city,
@@ -51,6 +51,9 @@ export const getExistingTour = async ({ city, country }: DestinationType) => {
       },
     },
   });
+
+  console.log("city_country", data);
+  return data;
 };
 
 export const generateTourResponse = async ({ city, country }: DestinationType) => {
@@ -81,7 +84,11 @@ export const generateTourResponse = async ({ city, country }: DestinationType) =
 
 export const createNewTour = async (tour: TourType) => {
   return prisma.tour.create({
-    data: tour,
+    data: {
+      ...tour,
+      city: tour.city.toLowerCase(),
+      country: tour.country.toLowerCase(),
+    },
   });
 };
 
@@ -117,4 +124,12 @@ export const getAllTours = async (searchTerm?: string) => {
   });
 
   return tours;
+};
+
+export const getSingleTour = async (id: string) => {
+  return prisma.tour.findUnique({
+    where: {
+      id,
+    },
+  });
 };
