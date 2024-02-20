@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-6 right-6">
           <HiBars3 className="size-5" />
         </label>
-        <div className="px-8 pt-14 pb-0 min-h-screen">{children}</div>
+        <div className="px-8 py-14 min-h-screen">{children}</div>
       </div>
 
       <div className="drawer-side">
