@@ -9,3 +9,5 @@ export { default as TourInfo } from "./newTour/TourInfo";
 export { default as Tours } from "./tours/Tours";
 export { default as TourCard } from "./tours/TourCard";
 export { default as ToursList } from "./tours/ToursList";
+export { default as ImageSlider } from "./imageSlider/ImageSlider";
+export { default as DirectionAwareHover } from "./tours/DirectionAwareHover";

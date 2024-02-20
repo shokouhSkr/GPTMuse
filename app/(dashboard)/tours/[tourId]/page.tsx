@@ -1,6 +1,6 @@
 import { TourInfo } from "@/components";
 import { TourType } from "@/types";
-import { getSingleTour } from "@/utils/actions";
+import { getSingleTour, updateTourImage } from "@/utils/actions";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +22,7 @@ const SingleTourPage = async ({ params }: { params: { tourId: string } }) => {
 
   const { data } = await axios(`${url}${tour.city}`);
   const tourImage = data?.results[0]?.urls?.raw;
+  await updateTourImage({ imageURL: tourImage, tourId: tour.id });
 
   return (
     <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ImagesSlider } from "@/components/landing/ImageSlider";
+import { ImageSlider } from "@/components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ const imagesArray = [
 const HomePage = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
-      <ImagesSlider images={imagesArray}>
+      <ImageSlider images={imagesArray}>
         <motion.div
           initial={{
             opacity: 0,
@@ -43,7 +43,7 @@ const HomePage = () => {
             <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
           </Link>
         </motion.div>
-      </ImagesSlider>
+      </ImageSlider>
     </div>
   );
 };

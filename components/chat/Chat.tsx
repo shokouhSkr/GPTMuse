@@ -28,6 +28,14 @@ const Chat = () => {
   return (
     <div className="min-h-[calc(100vh-5rem)] grid grid-rows-[1fr,auto] max-w-4xl lg:mx-auto lg:w-full">
       <div>
+        {/* Welcome message */}
+        <div className="bg-base-100 flex py-6 px-8 leading-loose border-b border-base-300">
+          <span className="mr-4 flex items-center">
+            <SiOpenai className="size-4" />
+          </span>
+          <p className="max-w-3xl">hello passanger!</p>
+        </div>
+
         {messages.map((message, index) => {
           const bgColor = message.role === "user" ? "" : "bg-base-100";
           const avatar =

@@ -134,17 +134,34 @@ export const getSingleTour = async (tourId: string) => {
   });
 };
 
-// With openai (NOT RECOMMENDED)
-export const generateTourImage = async ({ city, country }: DestinationType) => {
-  try {
-    const tourImage = await openai.images.generate({
-      prompt: `a panoramic view of the ${city} ${country}`,
-      n: 1,
-      size: "512x512",
-    });
-
-    return tourImage?.data[0]?.url;
-  } catch (error) {
-    return null;
-  }
+export const updateTourImage = async ({
+  tourId,
+  imageURL,
+}: {
+  tourId: string;
+  imageURL: string;
+}) => {
+  return prisma.tour.update({
+    where: {
+      id: tourId,
+    },
+    data: {
+      image: imageURL,
+    },
+  });
 };
+
+// With openai (NOT RECOMMENDED)
+// export const generateTourImage = async ({ city, country }: DestinationType) => {
+//   try {
+//     const tourImage = await openai.images.generate({
+//       prompt: `a panoramic view of the ${city} ${country}`,
+//       n: 1,
+//       size: "512x512",
+//     });
+
+//     return tourImage?.data[0]?.url;
+//   } catch (error) {
+//     return null;
+//   }
+// };

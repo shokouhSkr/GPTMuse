@@ -1,7 +1,7 @@
 import { TourType } from "@/types";
 
 const TourInfo = ({ tour }: { tour: TourType }) => {
-  const { title, description, stops } = tour;
+  const { title, description, stops, image } = tour;
 
   return (
     <div className="max-w-2xl">

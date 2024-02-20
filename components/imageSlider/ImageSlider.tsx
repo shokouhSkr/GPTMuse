@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { cn } from "@/utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const ImagesSlider = ({
+const ImageSlider = ({
   images,
   children,
   overlay = true,
@@ -146,3 +146,5 @@ export const ImagesSlider = ({
     </div>
   );
 };
+
+export default ImageSlider;
