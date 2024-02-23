@@ -45,7 +45,7 @@ const Chat = () => {
           </span>
           <p className="max-w-3xl">
             Ready to discover your next travel obsession? Tell me what kind of city excites you, and
-            I'll curate a personalized itinerary filled with unique experiences.
+            I will curate a personalized itinerary filled with unique experiences.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ const Chat = () => {
         </div>
 
         <p className="text-xs text-center mt-1.5 font-medium">
-          OpenCity AI can make mistakes, so it's good to double-check important information.
+          OpenCity AI can make mistakes, so it is good to double-check important information.
         </p>
       </form>
     </div>
