@@ -12,7 +12,7 @@ const DirectionAwareHover = ({
   imageClassName,
   className,
 }: {
-  imageUrl: string;
+  imageUrl?: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
@@ -26,7 +26,7 @@ const DirectionAwareHover = ({
     if (!ref.current) return;
 
     const direction = getDirection(event, ref.current);
-    console.log("direction", direction);
+
     switch (direction) {
       case 0:
         setDirection("top");
@@ -84,7 +84,7 @@ const DirectionAwareHover = ({
               className={cn("h-full w-full object-cover scale-[1.15]", imageClassName)}
               width="1000"
               height="1000"
-              src={imageUrl}
+              src={imageUrl || ""}
             />
           </motion.div>
           <motion.div

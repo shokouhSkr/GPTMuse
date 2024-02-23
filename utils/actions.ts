@@ -36,7 +36,7 @@ export const generateChatResponse = async (chatMessages: ChatMessageType[]) => {
       ? {
           role: "system",
           content:
-            "Ready to discover your next travel obsession? Tell me what kind of city excites you, and I'll curate a personalized itinerary filled with unique experiences.",
+            "Ready to discover your next travel obsession? Tell me what kind of place or city or country excites you, and I'll curate a personalized itinerary filled with unique experiences.",
         }
       : {
           role: "system",

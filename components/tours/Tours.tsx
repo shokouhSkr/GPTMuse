@@ -8,6 +8,7 @@ import { TourType } from "@/types";
 
 const Tours = () => {
   const [searchValue, setSearchValue] = useState("");
+
   const { data: allTours, isPending } = useQuery({
     queryKey: ["tours", searchValue],
     queryFn: () => getAllTours(searchValue),

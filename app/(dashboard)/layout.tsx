@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components";
-import { HiBars3 } from "react-icons/hi2";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,10 +9,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
       <div className="drawer-content">
         {/* Page content */}
-        <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-6 right-6">
-          <HiBars3 className="size-5" />
-        </label>
-        <div className="px-8 pt-14 pb-0 min-h-screen">{children}</div>
+        <nav className="fixed top-0 inset-x-0 bg-primary border-b border-neutral p-6 lg:hidden">
+          <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-4 right-4">
+            <HiOutlineMenuAlt3 className="size-5" />
+          </label>
+        </nav>
+
+        <div className="p-4 mt-12 lg:mt-0 lg:px-8 lg:pt-14 lg:pb-0">{children}</div>
       </div>
 
       <div className="drawer-side">
