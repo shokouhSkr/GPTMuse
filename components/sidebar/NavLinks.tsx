@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaUser } from "react-icons/fa6";
+import { PiChatCircleTextBold } from "react-icons/pi";
+import { CgTrees, CgTree, CgUser } from "react-icons/cg";
 
 const links = [
-  { href: "/chat", label: "chat", icon: <FaUser /> },
-  { href: "/tours", label: "tours", icon: <FaUser /> },
-  { href: "/tours/new-tour", label: "new tour", icon: <FaUser /> },
-  { href: "/profile", label: "profile", icon: <FaUser /> },
+  { href: "/chat", label: "chat", icon: <PiChatCircleTextBold /> },
+  { href: "/tours", label: "tours", icon: <CgTrees /> },
+  { href: "/tours/new-tour", label: "new tour", icon: <CgTree /> },
+  { href: "/profile", label: "profile", icon: <CgUser /> },
 ];
 
 const NavLinks = () => {
@@ -29,7 +30,7 @@ const NavLinks = () => {
                   : "text-[#949eb2] transition-all duration-200 hover:text-secondary"
               }`}
             >
-              <span className="text-sm">{icon}</span>
+              <span className="text-lg">{icon}</span>
               <span>{label}</span>
             </Link>
           </li>

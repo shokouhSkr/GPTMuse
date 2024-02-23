@@ -7,9 +7,9 @@ import Link from "next/link";
 const imagesArray = [
   "images/image1.jpg",
   "images/image5.jpg",
+  "images/image2.jpg",
   "images/image4.jpg",
   "images/image3.jpg",
-  "images/image2.jpg",
 ];
 
 const HomePage = () => {

@@ -8,7 +8,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const createDestinationPlan = ({ city, country }: DestinationType) => {
+const createDestinationPlanPrompt = ({ city, country }: DestinationType) => {
   // "stops": ["short paragraph on the stop 1 ", "short paragraph on the stop 2","shortparagraph on the stop 3"]
   return `Find a exact ${city} in this exact ${country}.
   If ${city} and ${country} exist, create a list of things families can do in this ${city},${country}. 
@@ -29,8 +29,23 @@ const createDestinationPlan = ({ city, country }: DestinationType) => {
 /******************************************************************/
 export const generateChatResponse = async (chatMessages: ChatMessageType[]) => {
   try {
+    const isFirstInteraction = chatMessages.length === 1 && chatMessages[0].role === "system";
+
+    // Prepare the system message with the specified starting phrase if it's the first interaction
+    const systemMessage: ChatMessageType = isFirstInteraction
+      ? {
+          role: "system",
+          content:
+            "Ready to discover your next travel obsession? Tell me what kind of city excites you, and I'll curate a personalized itinerary filled with unique experiences.",
+        }
+      : {
+          role: "system",
+          content:
+            "only answer to this question and relevant questions and greeting and if the question is irrelevant, response with this:Sorry! But I'm just here to help you plan your city adventure and discover amazing spots. If you have any question about that, feel free to ask!",
+        };
+
     const response = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "you are a helpful assistant" }, ...chatMessages],
+      messages: [systemMessage, ...chatMessages],
       model: "gpt-3.5-turbo",
       temperature: 0,
     });
@@ -57,7 +72,7 @@ export const getExistingTour = async ({ city, country }: DestinationType) => {
 };
 
 export const generateTourResponse = async ({ city, country }: DestinationType) => {
-  const query = createDestinationPlan({ city, country });
+  const query = createDestinationPlanPrompt({ city, country });
 
   try {
     const response: any = await openai.chat.completions.create({

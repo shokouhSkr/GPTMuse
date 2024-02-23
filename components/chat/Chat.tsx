@@ -5,6 +5,7 @@ import { useCreateMessage } from "@/hooks/useCreateMessage";
 import { ChatMessageType } from "@/types";
 import { SiOpenai } from "react-icons/si";
 import { FaRegUser } from "react-icons/fa6";
+import { PiNavigationArrow } from "react-icons/pi";
 
 const Chat = () => {
   const [text, setText] = useState("");
@@ -33,7 +34,10 @@ const Chat = () => {
           <span className="mr-4 flex items-center">
             <SiOpenai className="size-4" />
           </span>
-          <p className="max-w-3xl">hello passanger!</p>
+          <p className="max-w-3xl">
+            Ready to discover your next travel obsession? Tell me what kind of city excites you, and
+            I'll curate a personalized itinerary filled with unique experiences.
+          </p>
         </div>
 
         {messages.map((message, index) => {
@@ -71,13 +75,13 @@ const Chat = () => {
           />
 
           <button type="submit" disabled={isPending} className="btn join-item">
-            {isPending ? "..." : " ask question"}
+            <PiNavigationArrow className={`${isPending && "text-gray-500"} text-2xl rotate-90`} />
           </button>
         </div>
       </form>
 
       <p className="text-xs text-center mt-1.5 font-medium">
-        GPTMuse can make mistakes, so it's good to double-check important information.
+        OpenCity AI can make mistakes, so it's good to double-check important information.
       </p>
     </div>
   );
