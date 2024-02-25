@@ -36,42 +36,57 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <div className="grid grid-rows-[1fr,auto] max-w-4xl lg:mx-auto lg:w-full">
-      <div className="h-[calc(100dvh-180px)] overflow-y-auto scrollbar" ref={messagesContainerRef}>
+    <div className="grid grid-rows-[1fr,auto] max-w-4xl mx-auto lg:mx-auto lg:w-full">
+      <div
+        className="h-[calc(100dvh-180px)] text-sm lg:text-base space-y-2 p-4 overflow-y-auto lg:space-y-6 scrollbar"
+        ref={messagesContainerRef}
+      >
         {/* Welcome message */}
-        <div className="bg-base-100 flex p-2 md:py-6 md:px-8 leading-loose border-b border-base-300">
-          <span className="mr-4 flex items-center">
-            <SiOpenai className="size-4" />
-          </span>
-          <p className="max-w-3xl">
-            Ready to discover your next travel obsession? Tell me what kind of city excites you, and
-            I will curate a personalized itinerary filled with unique experiences.
-          </p>
+        <div className="chat chat-start">
+          <div className="chat-image avatar">
+            <span className="flex size-8 text-white items-center justify-center rounded-full p-1.5 bg-emerald-500">
+              <SiOpenai className="size-5" />
+            </span>
+          </div>
+          <div className="chat-bubble lg:py-4 bg-emerald-300/20">
+            Hello! How can I assist you today with planning your city adventure?
+          </div>
         </div>
 
+        {/* Messages */}
         {messages.map((message, index) => {
-          const bgColor = message.role === "user" ? "" : "bg-base-100";
+          const bgColor = message.role !== "user" && "bg-emerald-300/20";
+          const direction = message.role !== "user" ? "chat-start" : "chat-end";
           const avatar =
             message.role === "user" ? (
-              <FaRegUser className="size-4" />
+              // <FaRegUser className="size-4" />
+              <span className="text-xs font-semibold">YOU</span>
             ) : (
-              <SiOpenai className="size-4" />
+              <SiOpenai className="size-5" />
             );
 
           return (
-            <div
-              key={index}
-              className={`${bgColor} flex py-6 px-8 leading-loose border-b border-base-300`}
-            >
-              <span className="mr-4 flex items-center">{avatar}</span>
-              <p className="max-w-3xl">{message.content}</p>
+            <div key={index} className={`chat ${direction}`}>
+              <div className="chat-image avatar">
+                <span
+                  className={`flex size-8 text-white items-center justify-center rounded-full p-1.5 ${
+                    message.role !== "user" ? "bg-emerald-500" : "bg-gray-500"
+                  }`}
+                >
+                  {avatar}
+                </span>
+              </div>
+              <div className={`${bgColor} chat-bubble leading-normal lg:py-4`}>
+                {message.content}
+              </div>
             </div>
           );
         })}
 
-        {isPending && <span className="loading mt-8"></span>}
+        {isPending && <span className="loading mt-4 ml-[38px]"></span>}
       </div>
 
+      {/* Message input */}
       <form onSubmit={handleSubmit} className="fixed bottom-4 inset-x-4 lg:left-80 lg:right-16">
         <div className="join w-full">
           <input

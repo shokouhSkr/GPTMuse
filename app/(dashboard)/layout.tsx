@@ -7,15 +7,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       {/* Sidebar toggle */}
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
+      {/* Page content */}
       <div className="drawer-content">
-        {/* Page content */}
-        <nav className="fixed top-0 inset-x-0 bg-primary border-b border-neutral p-6 lg:hidden">
+        {/* Navbar */}
+        <nav className="fixed top-0 inset-x-0 shadow p-6 lg:hidden">
           <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-4 right-4">
             <HiOutlineMenuAlt3 className="size-5" />
           </label>
         </nav>
 
-        <div className="p-4 mt-12 lg:mt-0 lg:px-8 lg:pt-14 lg:pb-0">{children}</div>
+        <div className="mt-12 lg:mt-0 lg:px-8 lg:pt-14 lg:pb-0">{children}</div>
       </div>
 
       <div className="drawer-side">

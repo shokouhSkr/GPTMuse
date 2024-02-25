@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { cn } from "@/utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -25,19 +25,15 @@ const ImageSlider = ({
   const [loading, setLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1 === images.length ? 0 : prevIndex + 1));
-  };
+  }, [images.length]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1));
-  };
+  }, [images.length]);
 
-  useEffect(() => {
-    loadImages();
-  }, []);
-
-  const loadImages = () => {
+  const loadImages = useCallback(() => {
     setLoading(true);
     const loadPromises = images.map((image) => {
       return new Promise((resolve, reject) => {
@@ -54,7 +50,8 @@ const ImageSlider = ({
         setLoading(false);
       })
       .catch((error) => console.error("Failed to load images", error));
-  };
+  }, [images]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
@@ -66,7 +63,6 @@ const ImageSlider = ({
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // autoplay
     let interval: any;
     if (autoplay) {
       interval = setInterval(() => {
@@ -78,9 +74,11 @@ const ImageSlider = ({
       window.removeEventListener("keydown", handleKeyDown);
       clearInterval(interval);
     };
-  }, []);
+  }, [handleNext, autoplay, handlePrevious]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    loadImages();
+  }, [loadImages]);
 
   const slideVariants = {
     initial: {

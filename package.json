@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
-    "@prisma/client": "^5.9.1",
+    "@prisma/client": "^5.10.2",
     "@tanstack/react-query": "^5.8.1",
     "@tanstack/react-query-devtools": "^5.8.1",
     "axios": "^1.6.7",
@@ -34,7 +34,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
-    "prisma": "^5.9.1",
+    "prisma": "^5.10.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
