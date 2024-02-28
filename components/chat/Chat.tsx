@@ -6,6 +6,7 @@ import { ChatMessageType } from "@/types";
 import { SiOpenai } from "react-icons/si";
 import { FaRegUser } from "react-icons/fa6";
 import { PiNavigationArrow } from "react-icons/pi";
+import { IoSquareOutline } from "react-icons/io5";
 
 const Chat = () => {
   const [text, setText] = useState("");
@@ -36,9 +37,9 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <div className="grid grid-rows-[1fr,auto] max-w-4xl mx-auto lg:mx-auto lg:w-full">
+    <div className="flex flex-col h-[calc(100dvh-70px)] lg:h-[calc(100dvh-90px)] max-w-4xl mx-auto lg:mx-auto lg:w-full">
       <div
-        className="h-[calc(100dvh-180px)] text-sm lg:text-base space-y-2 p-4 overflow-y-auto lg:space-y-6 scrollbar"
+        className="flex-1 text-sm lg:text-base space-y-2 p-4 overflow-y-auto lg:space-y-6 scrollbar"
         ref={messagesContainerRef}
       >
         {/* Welcome message */}
@@ -59,8 +60,8 @@ const Chat = () => {
           const direction = message.role !== "user" ? "chat-start" : "chat-end";
           const avatar =
             message.role === "user" ? (
-              // <FaRegUser className="size-4" />
-              <span className="text-xs font-semibold">YOU</span>
+              // <span className="text-xs font-semibold">YOU</span>
+              <FaRegUser className="size-4" />
             ) : (
               <SiOpenai className="size-5" />
             );
@@ -83,23 +84,27 @@ const Chat = () => {
           );
         })}
 
-        {isPending && <span className="loading mt-4 ml-[38px]"></span>}
+        {isPending && <span className="loading mt-4 ml-[38px] text-gray-800"></span>}
       </div>
 
       {/* Message input */}
-      <form onSubmit={handleSubmit} className="fixed bottom-4 inset-x-4 lg:left-80 lg:right-16">
+      <form onSubmit={handleSubmit} className="px-4">
         <div className="join w-full">
           <input
             type="text"
             placeholder="Message OpenCity AI"
             className="input input-bordered join-item w-full focus:outline-none placeholder:text-sm"
             value={text}
-            required
+            // required
             onChange={(e) => setText(e.target.value)}
           />
 
-          <button type="submit" disabled={isPending} className="btn join-item">
-            <PiNavigationArrow className={`${isPending && "text-gray-500"} text-2xl rotate-90`} />
+          <button type="submit" disabled={isPending || text.length === 0} className="btn join-item">
+            {isPending ? (
+              <IoSquareOutline className="text-lg" />
+            ) : (
+              <PiNavigationArrow className="rotate-90 text-xl" />
+            )}
           </button>
         </div>
 
