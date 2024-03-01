@@ -10,7 +10,7 @@ const TourInfo = ({ tour }: { tour: TourType }) => {
       <ul>
         {stops?.map((stop) => {
           return (
-            <li key={stop} className="mb-4 bg-base-100 p-4 rounded-xl">
+            <li key={stop} className="mb-4 bg-base-200 p-4 rounded-xl">
               <p className="text">{stop}</p>
             </li>
           );

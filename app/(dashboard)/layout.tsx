@@ -16,7 +16,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </label>
         </nav>
 
-        <div className="mt-12 lg:mt-0 lg:px-8 lg:pt-14 lg:pb-0">{children}</div>
+        <div className="mt-12 lg:mt-0 lg:pt-14 lg:pb-0">{children}</div>
       </div>
 
       <div className="drawer-side">

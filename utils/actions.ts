@@ -109,11 +109,7 @@ export const createNewTour = async (tour: TourType) => {
 
 export const getAllTours = async (searchTerm?: string) => {
   if (!searchTerm) {
-    const tours = await prisma.tour.findMany({
-      orderBy: {
-        city: "asc",
-      },
-    });
+    const tours = await prisma.tour.findMany();
 
     return tours;
   }
@@ -165,18 +161,3 @@ export const updateTourImage = async ({
     },
   });
 };
-
-// With openai (NOT RECOMMENDED)
-// export const generateTourImage = async ({ city, country }: DestinationType) => {
-//   try {
-//     const tourImage = await openai.images.generate({
-//       prompt: `a panoramic view of the ${city} ${country}`,
-//       n: 1,
-//       size: "512x512",
-//     });
-
-//     return tourImage?.data[0]?.url;
-//   } catch (error) {
-//     return null;
-//   }
-// };

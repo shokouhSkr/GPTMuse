@@ -7,9 +7,9 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GPTMuse",
+  title: "OpenCity AI",
   description:
-    "GPTMuse: Your AI language companion. Powered by OpenAI, it enhances your conversations, content creation, and more!",
+    "OpenCity AI: Your AI language companion. Powered by OpenAI, it helps you find the most beautiful places in the world!",
 };
 
 export default function RootLayout({
