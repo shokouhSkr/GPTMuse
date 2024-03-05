@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PiChatCircleTextBold } from "react-icons/pi";
 import { CgTrees, CgTree, CgUser } from "react-icons/cg";
+import { RiChat1Line } from "react-icons/ri";
 
 const links = [
-  { href: "/chat", label: "chat", icon: <PiChatCircleTextBold /> },
+  {
+    href: "/chat",
+    label: "chat",
+    icon: <RiChat1Line />,
+  },
   { href: "/tours", label: "tours", icon: <CgTrees /> },
   { href: "/tours/new-tour", label: "new tour", icon: <CgTree /> },
   { href: "/profile", label: "profile", icon: <CgUser /> },

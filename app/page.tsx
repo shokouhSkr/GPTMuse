@@ -33,7 +33,7 @@ const HomePage = () => {
           <motion.p className="font-semibold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
             Discover Hidden Gems Of Cities
             <br /> with OpenCity AI <br />{" "}
-            <p className="text-sm md:text-xl font-semibold mt-3">powered by OpenAI</p>
+            <span className="text-sm md:text-xl font-semibold mt-3">powered by OpenAI</span>
           </motion.p>
           <Link
             href="/chat"
