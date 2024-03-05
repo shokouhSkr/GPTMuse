@@ -13,7 +13,6 @@ const links = [
   },
   { href: "/tours", label: "tours", icon: <CgTrees /> },
   { href: "/tours/new-tour", label: "new tour", icon: <CgTree /> },
-  { href: "/profile", label: "profile", icon: <CgUser /> },
 ];
 
 const NavLinks = () => {
