@@ -5,8 +5,8 @@ const TourInfo = ({ tour }: { tour: TourType }) => {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="text-4xl font-semibold mb-4">{title}</h1>
-      <p className="leading-loose mb-6">{description}</p>
+      <h1 className="text-4xl font-semibold mb-4 dark:text-[#949eb2]">{title}</h1>
+      <p className="leading-loose mb-6 dark:text-[#949eb2]">{description}</p>
       <ul>
         {stops?.map((stop) => {
           return (

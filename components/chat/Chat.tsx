@@ -49,7 +49,7 @@ const Chat = () => {
               <SiOpenai className="size-5" />
             </span>
           </div>
-          <div className="chat-bubble lg:py-4 bg-emerald-300/20">
+          <div className="chat-bubble flex items-center lg:py-4 bg-emerald-300/20">
             Hello! How can I assist you today with planning your city adventure?
           </div>
         </div>
@@ -77,7 +77,7 @@ const Chat = () => {
                   {avatar}
                 </span>
               </div>
-              <div className={`${bgColor} chat-bubble leading-normal lg:py-4`}>
+              <div className={`${bgColor} chat-bubble leading-normal flex items-center lg:py-4`}>
                 {message.content}
               </div>
             </div>
@@ -99,7 +99,11 @@ const Chat = () => {
             onChange={(e) => setText(e.target.value)}
           />
 
-          <button type="submit" disabled={isPending || text.length === 0} className="btn join-item">
+          <button
+            type="submit"
+            disabled={isPending || text.length === 0}
+            className="btn join-item border border-gray-300 disabled:dark:bg-slate-50"
+          >
             {isPending ? (
               <IoSquareOutline className="text-lg" />
             ) : (
@@ -108,7 +112,7 @@ const Chat = () => {
           </button>
         </div>
 
-        <p className="text-xs text-center mt-1.5 font-medium">
+        <p className="text-xs text-center text-gray-900 dark:text-white/45 mt-1.5 font-medium">
           OpenCity AI can make mistakes, so it is good to double-check important information.
         </p>
       </form>

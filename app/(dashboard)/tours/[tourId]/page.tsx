@@ -21,10 +21,11 @@ const SingleTourPage = async ({ params }: { params: { tourId: string } }) => {
   await updateTourImage({ imageURL: tourImage, tourId: tour.id });
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-70px)] max-w-4xl pb-14 lg:h-auto mx-auto lg:mx-auto lg:w-full">
+    <div className="flex flex-col h-[calc(100dvh-70px)] max-w-4xl lg:pb-14 lg:h-auto mx-auto lg:mx-auto lg:w-full">
       <div className="flex-1 text-sm lg:text-base space-y-2 p-6 overflow-y-auto lg:space-y-6">
-        <Link href="/tours" className="btn mb-12">
+        <Link href="/tours" className="btn lowercase mb-12">
           <IoArrowBack className="text-xl hover:-translate-x-1 transition-all duration-200" />
+          <span className="capitalize lg:block hidden">Back to tours</span>
         </Link>
 
         {tourImage ? (

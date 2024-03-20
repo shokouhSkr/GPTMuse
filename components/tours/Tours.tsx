@@ -17,7 +17,7 @@ const Tours = () => {
 
   const dataType = allTours as TourType[];
   return (
-    <div className="flex flex-col h-[calc(100dvh-70px)] pb-14 max-w-4xl lg:h-auto mx-auto lg:mx-auto lg:w-full">
+    <div className="flex flex-col h-[calc(100dvh-70px)] lg:pb-14 max-w-4xl lg:h-auto mx-auto lg:mx-auto lg:w-full">
       <div className="flex-1 text-sm lg:text-base space-y-2 p-6 overflow-y-auto lg:space-y-6">
         <form className="max-w-lg mb-12 mx-auto">
           <div className="join w-full">
@@ -31,7 +31,7 @@ const Tours = () => {
               required
             />
             <button
-              className="btn btn-primary join-item lowercase"
+              className="btn join-item border border-gray-300 disabled:dark:bg-slate-50"
               type="button"
               disabled={isPending || searchValue.length === 0}
               onClick={() => setSearchValue("")}
@@ -41,7 +41,11 @@ const Tours = () => {
           </div>
         </form>
 
-        {isPending ? <span className="loading"></span> : <ToursList allTours={dataType} />}
+        {isPending ? (
+          <span className="loading mx-auto block dark:text-gray-500 text-center"></span>
+        ) : (
+          <ToursList allTours={dataType} />
+        )}
       </div>
     </div>
   );

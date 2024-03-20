@@ -14,7 +14,7 @@ const imagesArray = [
 
 const HomePage = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-dvh bg-base-200">
       <ImageSlider images={imagesArray}>
         <motion.div
           initial={{
@@ -30,7 +30,7 @@ const HomePage = () => {
           }}
           className="z-50 flex flex-col justify-center items-center"
         >
-          <motion.p className="font-semibold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+          <motion.p className="font-semibold text-2xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
             Discover Hidden Gems Of Cities
             <br /> with OpenCity AI <br />{" "}
             <span className="text-sm md:text-xl font-semibold mt-3">powered by OpenAI</span>

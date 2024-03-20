@@ -3,10 +3,10 @@ import { SiOpenai } from "react-icons/si";
 
 const SidebarHeader = () => {
   return (
-    <div className="flex items-center my-4 gap-4 px-3 text-secondary">
-      <SiOpenai className="w-7 h-7" />
-      <h2 className="text-xl text-secondary mr-auto font-medium">OpenCity AI</h2>
-      {/* <ThemeToggle /> */}
+    <div className="flex items-center mt-4 mb-5 gap-3 px-3 dark:text-gray-100 text-gray-900">
+      <SiOpenai className="w-8 h-8" />
+      <h2 className="text-xl mr-auto font-medium">OpenCity AI</h2>
+      <ThemeToggle />
     </div>
   );
 };

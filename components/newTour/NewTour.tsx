@@ -26,7 +26,7 @@ const NewTour = () => {
     <div className="flex flex-col h-[calc(100dvh-70px)] pb-14 max-w-4xl lg:h-[calc(100dvh-90px)] mx-auto lg:w-full">
       <div className="flex-1 text-sm lg:text-base space-y-2 p-4 overflow-y-auto lg:space-y-6">
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto mb-12">
-          <h2 className="mb-4">Select your dream destination</h2>
+          <h2 className="mb-4 dark:text-[#949eb2]">Select your dream destination:</h2>
 
           <div className="join w-full">
             <input
@@ -44,7 +44,10 @@ const NewTour = () => {
               required
             />
 
-            <button type="submit" className="btn btn-primary join-item lowercase bg-gray-200">
+            <button
+              type="submit"
+              className="btn join-item border border-gray-300 disabled:dark:bg-slate-50"
+            >
               generate tour
             </button>
           </div>

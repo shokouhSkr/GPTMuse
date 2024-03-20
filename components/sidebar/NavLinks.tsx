@@ -19,7 +19,7 @@ const NavLinks = () => {
   const currentPath = usePathname();
 
   return (
-    <ul className="text-base-content space-y-2">
+    <ul className="text-base-content space-y-1.5">
       {links.map(({ href, label, icon }) => {
         const isActive = href === currentPath;
 
@@ -27,9 +27,9 @@ const NavLinks = () => {
           <li key={label}>
             <Link
               href={href}
-              className={`flex flex-1 items-center gap-4 px-4 py-2 rounded-md capitalize text-[13px] font-medium ${
+              className={`flex flex-1 items-center gap-4 px-4 py-2.5 rounded-md capitalize text-sm font-medium ${
                 isActive
-                  ? "text-secondary bg-accent"
+                  ? "text-gray-50 bg-emerald-600"
                   : "text-[#949eb2] transition-all duration-200 hover:text-secondary"
               }`}
             >

@@ -10,9 +10,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       {/* Page content */}
       <div className="drawer-content">
         {/* Navbar */}
-        <nav className="fixed top-0 inset-x-0 shadow p-6 lg:hidden">
-          <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-4 right-4">
-            <HiOutlineMenuAlt3 className="size-5" />
+        <nav className="fixed top-0 inset-x-0 shadow border-b border-gray-400/20 p-6 bg-white dark:bg-black/5 lg:hidden">
+          <label
+            htmlFor="my-drawer-2"
+            className="drawer-button hover:cursor-pointer lg:hidden fixed top-4 right-4"
+          >
+            <HiOutlineMenuAlt3 className="size-5 dark:text-gray-100" />
           </label>
         </nav>
 

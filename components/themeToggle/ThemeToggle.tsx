@@ -20,10 +20,10 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="size-8 grid place-items-center rounded-md border border-gray-400 swap swap-rotate"
+      className="size-8 grid place-items-center rounded-md border border-gray-400/60 dark:border-gray-400/25 swap swap-rotate text-gray-500"
     >
-      <PiSun className={`size-5 ${theme === themes.light ? "swap-on" : "swap-off"}`} />
-      <PiMoonStars className={`size-5 ${theme === themes.dark ? "swap-on" : "swap-off"}`} />
+      <PiSun className={`size-[22px] ${theme === themes.light ? "swap-on" : "swap-off"}`} />
+      <PiMoonStars className={`size-[22px] ${theme === themes.dark ? "swap-on" : "swap-off"}`} />
     </button>
   );
 };
