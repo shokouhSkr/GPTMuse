@@ -7,6 +7,7 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
   title: "OpenCity AI",
   description:
     "OpenCity AI: Your AI language companion. Powered by OpenAI, it helps you find the most beautiful places in the world!",
