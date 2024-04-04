@@ -19,13 +19,15 @@ const NewTour = () => {
   };
 
   if (isPending) {
-    return <span className="loading loading-lg"></span>;
+    return (
+      <span className="loading loading-lg mx-auto block dark:text-gray-500 text-center"></span>
+    );
   }
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-70px)] pb-14 max-w-4xl lg:h-[calc(100dvh-90px)] mx-auto lg:w-full">
-      <div className="flex-1 text-sm lg:text-base space-y-2 p-4 overflow-y-auto lg:space-y-6">
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto mb-12">
+    <div className="flex flex-col h-[calc(100dvh-70px)] pb-14 max-w-4xl lg:h-[calc(100dvh-90px)] mx-auto lg:w-full overflow-y-auto">
+      <div className="flex-1 text-sm lg:text-base space-y-2 p-4 lg:space-y-6">
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mb-12">
           <h2 className="mb-4 dark:text-[#949eb2]">Select your dream destination:</h2>
 
           <div className="join w-full">
@@ -53,7 +55,9 @@ const NewTour = () => {
           </div>
         </form>
 
-        <div className="mt-16 max-w-4xl mx-auto">{tour ? <TourInfo tour={tour} /> : null}</div>
+        <div className="mt-16 max-w-4xl mx-auto flex justify-center">
+          {tour ? <TourInfo tour={tour} /> : null}
+        </div>
       </div>
     </div>
   );

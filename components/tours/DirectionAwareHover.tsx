@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import backupImage from "@/public/images/backupImg.png";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -84,7 +85,7 @@ const DirectionAwareHover = ({
               className={cn("h-full w-full object-cover scale-[1.15]", imageClassName)}
               width="1000"
               height="1000"
-              src={imageUrl || ""}
+              src={imageUrl || backupImage}
             />
           </motion.div>
           <motion.div

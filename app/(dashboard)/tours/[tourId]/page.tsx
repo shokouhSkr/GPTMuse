@@ -32,8 +32,8 @@ const SingleTourPage = async ({ params }: { params: { tourId: string } }) => {
           <div>
             <Image
               src={tourImage}
-              width={400}
-              height={400}
+              width={450}
+              height={450}
               className="rounded-xl shadow-xl mb-16 h-96 w-full max-w-4xl mx-auto lg:h-[30rem] object-cover"
               alt={tour.title}
               priority

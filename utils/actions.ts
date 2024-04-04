@@ -9,7 +9,7 @@ const openai = new OpenAI({
 });
 
 const createDestinationPlanPrompt = ({ city, country }: DestinationType) => {
-  // "stops": ["short paragraph on the stop 1 ", "short paragraph on the stop 2","shortparagraph on the stop 3"]
+  // "stops": ["stop name ", "stop name","stop name"]
   return `Find a exact ${city} in this exact ${country}.
   If ${city} and ${country} exist, create a list of things families can do in this ${city},${country}. 
   Once you have a list, create a one-day tour. Response should be  in the following JSON format: 
@@ -19,7 +19,7 @@ const createDestinationPlanPrompt = ({ city, country }: DestinationType) => {
     "country": "${country}",
     "title": "title of the tour",
     "description": "short description of the city and tour",
-    "stops": ["stop name ", "stop name","stop name"]
+    "stops": ["short paragraph on the stop 1 ", "short paragraph on the stop 2","short paragraph on the stop 3"]
   }
   }
   "stops" property should include only three stops.
